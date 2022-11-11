@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\mahasiswamodel;
+use App\Models\kelasmodel;
+use Database\Seeders\kelas;
 use Illuminate\Http\Request;
 
-class mahasiswacontroller extends Controller
+class kelascontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,10 @@ class mahasiswacontroller extends Controller
      */
     public function index()
     {
-        $data=mahasiswamodel::all();
-        $no=0;
+        $data=kelasmodel::all();
+        $id=0;
         // dd($data);
-        return view('mahasiswa', compact('data','no'));
+        return view('kelas', compact('data','id'));
     }
 
     /**
