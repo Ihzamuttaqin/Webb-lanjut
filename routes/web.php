@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\mahasiswacontroller;
 use App\Http\Controllers\soalcontroller;
+use App\Http\Controllers\Utscontroller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
@@ -39,8 +40,18 @@ Route::delete('/kelas/{id}', [mahasiswacontroller::class,'destroy'])->name('kela
 Route::get('/soal', [App\Http\Controllers\soalcontroller::class, 'index'])->name('soal');
 Route::get('/soal/{id}/edit', [soalcontroller::class])->name('soal.edit');
 Route::delete('/soal/{id}', [soalcontroller::class,'destroy'])->name('soal.delete');
-Route::get('/tambahsoal', [soalcontroller::class, 'tambahsoal'])->name('tambahsoal');
+//Route::get('/tambahsoal', [soalcontroller::class, 'tambahsoal'])->name('tambahsoal');
 Route::post('/insertdata', [soalcontroller::class, 'insertdata'])->name('insertdata');
+
+Route::get('/mid/tampil', [App\Http\Controllers\Utscontroller::class, 'index'])->name('mid');
+
+Route::get('/mid/tampildata/{id}', [Utscontroller::class, 'tampildata'])->name('tampildata');
+Route::post('/mid/updatedata/{id}', [Utscontroller::class, 'updatedata'])->name('updatedata');
+
+Route::get('/mid/delete/{id}', [Utscontroller::class,'delete'])->name('delete');
+
+Route::get('/mid/form-tambah', [Utscontroller::class, 'tambah'])->name('tambah');
+Route::post('/mid/insertdata', [Utscontroller::class, 'insertdata'])->name('insertdata');
 
 
 
